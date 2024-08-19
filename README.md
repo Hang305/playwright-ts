@@ -1,25 +1,26 @@
 # playwright-ts
 This repo is my first idea to start building a web automation framework with playwright
 
-Install Playwright 
-npm init playright@latest 
+##  Install Playwright 
+`npm init playright@latest `
 
-npx playwright test
-    Runs the end-to-end tests.
+##  Runs the end-to-end tests.
+`npx playwright test`
 
-  npx playwright test --ui
-    Starts the interactive UI mode.
+##  Starts the interactive UI mode.
+`  npx playwright test --ui`
 
-  npx playwright test --project=chromium
-    Runs the tests only on Desktop Chrome.
+##  Runs the tests only on Desktop Chrome.
+ ` npx playwright test --project=chromium`
 
-  npx playwright test example
-    Runs the tests in a specific file.
+##  Runs the tests in a specific file.
+  `npx playwright test example`
 
-  npx playwright test --debug
-    Runs the tests in debug mode.
+##  Runs the tests in debug mode.
+`  npx playwright test --debug`
 
-  npx playwright codegen
-    Auto generate tests with Codegen.
+##  Auto generate tests with Codegen.
+`  npx playwright codegen`
 
-  npm playwright test --reporter=dot
+
+`  npm playwright test --reporter=dot`

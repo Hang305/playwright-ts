@@ -39,7 +39,7 @@ export default defineConfig({
   //   ['list'],
   //   ['json', {  outputFile: 'test-results.json' }]
   // ],
-  
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -47,7 +47,23 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    // headless:false,
+    // ignoreHTTPSErrors:true,
+    // viewport:{width:1280, height:720},
+    // video:'on-first-retry',
+    // timeout: 30000, 
+    // acceptDownloads:false,
+    // browserName: 'chrome',
+    // expect:{
+    //     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
+    //     actionTimeout: 0,
+    // }
+
   },
+
+  // Folder for tesst artifacts such ass screenshots, videos, traces, etc, 
+  outputDir: 'test-results/',
 
   /* Configure projects for major browsers */
   projects: [
@@ -65,6 +81,34 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
+
+    {
+      name: 'all-browsers-and-tests',
+      use: {
+        baseURL: 'https://playwright.dev/',
+      }
+    },
+
+    // Example only 
+    {
+      name: 'local',
+      use: {
+        baseURL: baseEnvUrl.local.baseUrl,
+      }
+    },
+
+    // Example only 
+    {
+      name: 'ci',
+      use: {
+        baseURL: process.env.CI
+          ? baseEnvUrl.ci.baseUrl + process.env.GITHUB_REF_NAME + baseEnvUrl.ci.env : baseEnvUrl.qa.baseUrl
+      }
+    },
+     /**
+       * GitHub variables: https://docs.github.com/en/actions/learn-github-actions/variables
+       * GitLab variables: https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference
+       */
 
     /* Test against mobile viewports. */
     // {

@@ -1,10 +1,22 @@
 export default{
     ci:{
-        prefix:'',
-        suffix:'',
+        baseUrl:'',
+        env:'',
     },
     local:{
-        api:'',
-        url:'',
-    }
+        baseUrl:'',
+        env:'',
+    },
+    qa:{
+        baseUrl:'',
+        env:'',
+    },
+    staging:{
+        baseUrl:'',
+        env:'',
+    },
+    production:{
+        baseUrl:'',
+        env:'',
+    },
 }
